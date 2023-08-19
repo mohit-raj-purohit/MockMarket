@@ -33,7 +33,7 @@ const Header: React.FC = () => {
 				</Link>
 				<nav className="ml-10">
 					<div className="flex flex-wrap items-center justify-between mx-auto p-4">
-						<ul className="flex flex-raw ">
+						<ul className="flex-raw hidden md:flex ">
 							<li>
 								<a href="#" className="block py-2 pl-3 pr-4">
 									Categories
