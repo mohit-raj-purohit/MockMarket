@@ -8,11 +8,11 @@ function App() {
 	return (
 		<>
 			<div className={`main-wrapper ${preferredColorScheme}`}>
-				<Header />
 				<BrowserRouter>
+					<Header />
 					<Routes />
+					<Footer />
 				</BrowserRouter>
-				<Footer />
 			</div>
 		</>
 	);

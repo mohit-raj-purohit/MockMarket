@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import PageNotFoundImage from '../../assets/404.jpg';
+import { HOME_PAGE_PATH } from '../../constants';
 const PageNotFound = () => {
 	return (
 		<div className="v-container flex flex-col md:flex-row items-center h-auto md:min-h-screen mx-auto">
@@ -14,9 +16,9 @@ const PageNotFound = () => {
 					been moved.
 				</p>
 				<div className="flex items-center mt-6 gap-x-3">
-					<button className="px-5 py-2 text-sm tracking-wide transition-colors duration-200 text-white bg-orange-600 hover:bg-orange-500">
+					<Link to={HOME_PAGE_PATH} className="px-5 py-2 text-sm tracking-wide transition-colors duration-200 text-white bg-orange-600 hover:bg-orange-500">
 						Take me home
-					</button>
+					</Link>
 				</div>
 			</div>
 			<div className='w-full md:w-1/2 pt-7 md:py-0'>
