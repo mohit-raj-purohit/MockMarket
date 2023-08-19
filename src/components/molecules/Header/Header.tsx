@@ -17,7 +17,7 @@ const Header: React.FC = () => {
 		}, 300);
 	};
 	return (
-		<header className="header bg-white border-b border-gray-200 sticky top-0">
+		<header className="header bg-white border-b border-gray-200 sticky top-0 z-10">
 			<div className="v-container mx-auto flex justify-between py-3">
 				<Link
 					to={HOME_PAGE_PATH}
