@@ -21,7 +21,7 @@ const Home = () => {
 						<button className="flex items-center mt-4 px-5 py-2 text-sm tracking-wide transition-colors duration-200 text-white bg-orange-600 hover:bg-orange-500">
 							<span>Shop Now</span>
 							<svg
-								className="h-5 w-5 mx-2"
+								className="h-5 w-5 ml-2"
 								fill="none"
 								strokeLinecap="round"
 								strokeLinejoin="round"
