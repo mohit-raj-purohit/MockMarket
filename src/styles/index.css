@@ -4,7 +4,8 @@
 
 .v-container {
     @apply container;
-    @apply px-7;
+    @apply px-5;
+    @apply md:px-0;
 }
 .main-wrapper {
     @apply flex;

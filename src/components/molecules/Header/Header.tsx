@@ -4,6 +4,7 @@ import viteLogoDark from '../../../assets/logo-dark.png';
 import './index.css';
 import {Link} from 'react-router-dom';
 import {HOME_PAGE_PATH} from '../../../constants';
+import {MAIN_NAVIGATION} from '../../../services/navigation.service';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { addItem } from '../../../redux/slices/CartSlice';
 // import {AppState} from '../../../redux/store/store';
@@ -31,27 +32,27 @@ const Header: React.FC = () => {
 				>
 					<img src={viteLogoDark} className="w-28 block" alt="logo" />
 				</Link>
-				<nav className="ml-10">
-					<div className="flex flex-wrap items-center justify-between mx-auto p-4">
-						<ul className="flex-raw hidden md:flex ">
-							<li>
-								<a href="#" className="block py-2 pl-3 pr-4">
-									Categories
-								</a>
-							</li>
-							<li>
-								<a href="#" className="block py-2 pl-3 pr-4">
-									Products
-								</a>
-							</li>
-							<li>
-								<a href="#" className="block py-2 pl-3 pr-4">
-									Contact
-								</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
+				{MAIN_NAVIGATION.length && (
+					<nav className="ml-10">
+						<div className="flex flex-wrap items-center justify-between mx-auto p-4">
+							<ul className="flex-raw hidden md:flex ">
+								{MAIN_NAVIGATION.map(({name, path}, index) => {
+									return (
+										<li>
+											<Link
+												to={path}
+												key={index}
+												className="block py-2 pl-3 pr-4"
+											>
+												{name}
+											</Link>
+										</li>
+									);
+								})}
+							</ul>
+						</div>
+					</nav>
+				)}
 
 				<button type="button" className="ml-auto mr-3">
 					<CiSearch size={25} />
