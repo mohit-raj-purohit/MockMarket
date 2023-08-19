@@ -1,5 +1,5 @@
 import React from 'react';
-import { CiMenuBurger, CiSearch, CiShoppingCart } from "react-icons/ci";
+import { CiSearch, CiShoppingCart } from "react-icons/ci";
 import viteLogoDark from '../../../assets/logo-dark.png';
 import './index.css';
 // import { useDispatch, useSelector } from 'react-redux';
