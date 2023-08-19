@@ -24,7 +24,7 @@ function usePreferredColorScheme(): ColorScheme {
 
 function getPreferredColorScheme(): ColorScheme {
 	const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-	return mediaQuery.matches ? 'theme-dark' : 'theme-light';
+	return mediaQuery.matches ? 'dark' : 'light';
 }
 
 export default usePreferredColorScheme;
