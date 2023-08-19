@@ -1,10 +1,12 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
-import {Contact, Home, PageNotFound} from '../pages';
+import {Categories, Contact, Home, PageNotFound, Products} from '../pages';
 import {
+	CATEGORIES_PAGE_PATH,
 	CONTACT_PAGE_PATH,
 	HOME_PAGE_PATH,
 	PAGE_NOT_FOUND_PATH,
+	PRODUCTS_PAGE_PATH,
 } from '../constants';
 
 type AppRoute = {
@@ -18,6 +20,8 @@ const AppRoutes: React.FC = () => {
 		{path: HOME_PAGE_PATH, element: <Home />},
 		{path: PAGE_NOT_FOUND_PATH, element: <PageNotFound />},
 		{path: CONTACT_PAGE_PATH, element: <Contact />},
+		{path: CATEGORIES_PAGE_PATH, element: <Categories />},
+		{path: PRODUCTS_PAGE_PATH, element: <Products />},
 	];
 
 	return (

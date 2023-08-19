@@ -2,7 +2,7 @@ const Contact = () => {
 	return (
 		<>
 			{/* Container for demo purpose */}
-			<div className="v-container my-8 mx-auto md:px-6">
+			<div className="v-container mt-auto mx-auto md:px-6">
 				{/* Section: Design Block */}
 				<section>
 					<div className="block rounded-lg bg-white border border-gray-200">

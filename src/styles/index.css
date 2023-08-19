@@ -12,3 +12,6 @@
     @apply min-h-screen;
     @apply justify-between;
 }
+body {
+    @apply bg-slate-100;
+}

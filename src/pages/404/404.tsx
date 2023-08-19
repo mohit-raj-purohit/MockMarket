@@ -21,7 +21,7 @@ const PageNotFound = () => {
 					</Link>
 				</div>
 			</div>
-			<div className='w-full md:w-1/2 pt-7 md:py-0'>
+			<div className='w-full md:w-1/2 pt-7 md:py-0 rounded-lg bg-white border border-gray-200 overflow-hidden'>
 				<img src={PageNotFoundImage} className='w-full h-full object-cover aspect-404-image' alt=""/>
 			</div>
 		</div>
