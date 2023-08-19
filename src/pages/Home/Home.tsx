@@ -13,7 +13,7 @@ const Home = () => {
 						<h2 className="text-2xl text-white font-semibold">
 							Sport Shoes
 						</h2>
-						<p className="mt-2 text-gray-400">
+						<p className="mt-2 text-gray-200">
 							Lorem ipsum dolor, sit amet consectetur adipisicing
 							elit. Tempore facere provident molestias ipsam sint
 							voluptatum pariatur.
@@ -48,7 +48,7 @@ const Home = () => {
 							<h2 className="text-2xl text-white font-semibold">
 								Back Pack
 							</h2>
-							<p className="mt-2 text-gray-400">
+							<p className="mt-2 text-gray-200">
 								Lorem ipsum dolor, sit amet consectetur
 								adipisicing elit. Tempore facere provident
 								molestias ipsam sint voluptatum pariatur.
@@ -82,7 +82,7 @@ const Home = () => {
 							<h2 className="text-2xl text-white font-semibold">
 								Games
 							</h2>
-							<p className="mt-2 text-gray-400">
+							<p className="mt-2 text-gray-200">
 								Lorem ipsum dolor, sit amet consectetur
 								adipisicing elit. Tempore facere provident
 								molestias ipsam sint voluptatum pariatur.
