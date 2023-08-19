@@ -2,7 +2,7 @@ import PageNotFoundImage from '../../assets/404.jpg';
 const PageNotFound = () => {
 	return (
 		<div className="v-container flex flex-col md:flex-row items-center h-auto md:min-h-screen mx-auto">
-			<div className='w-full md:w-1/2 gap-3'>
+			<div className='w-full md:w-1/2 gap-3 pt-9 pb-7 md:py-0'>
 				<p className="text-lg font-medium text-orange-600">
 					Oops...
 				</p>
@@ -19,7 +19,7 @@ const PageNotFound = () => {
 					</button>
 				</div>
 			</div>
-			<div className='w-full md:w-1/2'>
+			<div className='w-full md:w-1/2 pt-7 md:py-0'>
 				<img src={PageNotFoundImage} className='w-full h-full object-cover aspect-404-image' alt=""/>
 			</div>
 		</div>

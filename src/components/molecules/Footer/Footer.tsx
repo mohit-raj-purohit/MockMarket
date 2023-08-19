@@ -3,7 +3,7 @@ import { CiTwitter } from 'react-icons/ci';
 import { AiOutlineGithub } from "react-icons/ai";
 const Footer: FC = () => {
 	return (
-		<footer className="bg-gray-800 text-white py-4">
+		<footer className="bg-gray-800 text-white py-4 mt-auto">
 			<div className="v-container flex flex-col md:flex-row justify-between mx-auto text-center md:text-left">
 				<p className="text-sm">Copyright © 2023 VENDORA</p>
 				<div className="mt-3 md:mt-0">
