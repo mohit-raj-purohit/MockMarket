@@ -20,7 +20,7 @@ const Contact = () => {
 									<div className="mb-12 w-full shrink-0 grow-0 basis-auto px-3 md:w-6/12 md:px-6 lg:w-full xl:w-6/12 xl:px-12">
 										<div className="flex items-start">
 											<div className="shrink-0">
-												<div className="inline-block rounded-md bg-primary-100 p-4 text-primary">
+												<div className="inline-block rounded-md bg-orange-500 p-4 text-white">
 													<svg
 														xmlns="http://www.w3.org/2000/svg"
 														fill="none"
@@ -53,7 +53,7 @@ const Contact = () => {
 									<div className="mb-12 w-full shrink-0 grow-0 basis-auto px-3 md:w-6/12 md:px-6 lg:w-full xl:w-6/12 xl:px-12">
 										<div className="flex items-start">
 											<div className="shrink-0">
-												<div className="inline-block rounded-md bg-primary-100 p-4 text-primary">
+												<div className="inline-block rounded-md bg-orange-500 p-4 text-white">
 													<svg
 														xmlns="http://www.w3.org/2000/svg"
 														fill="none"
@@ -86,7 +86,7 @@ const Contact = () => {
 									<div className="mb-12 w-full shrink-0 grow-0 basis-auto px-3 md:w-6/12 md:px-6 lg:w-full xl:mb-0 xl:w-6/12 xl:px-12">
 										<div className="align-start flex">
 											<div className="shrink-0">
-												<div className="inline-block rounded-md bg-primary-100 p-4 text-primary">
+												<div className="inline-block rounded-md bg-orange-500 p-4 text-white">
 													<svg
 														xmlns="http://www.w3.org/2000/svg"
 														fill="none"
@@ -119,7 +119,7 @@ const Contact = () => {
 									<div className="w-full shrink-0 grow-0 basis-auto px-3 md:w-6/12 md:px-6 lg:w-full xl:w-6/12 xl:px-12">
 										<div className="align-start flex">
 											<div className="shrink-0">
-												<div className="inline-block rounded-md bg-primary-100 p-4 text-primary">
+												<div className="inline-block rounded-md bg-orange-500 p-4 text-white">
 													<svg
 														xmlns="http://www.w3.org/2000/svg"
 														fill="none"
