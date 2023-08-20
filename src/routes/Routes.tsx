@@ -1,6 +1,12 @@
 import React from 'react';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
-import {Categories, Contact, Home, PageNotFound, Products} from '../components/pages';
+import {
+	Categories,
+	Contact,
+	Home,
+	PageNotFound,
+	Products,
+} from '../components/pages';
 import {
 	CATEGORIES_PAGE_PATH,
 	CONTACT_PAGE_PATH,
@@ -29,9 +35,9 @@ const AppRoutes: React.FC = () => {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<BaseLayout />}>
-					{routes.map((route) => (
+					{routes.map((route, index) => (
 						<Route
-							key={route.path}
+							key={index}
 							path={route.path}
 							element={route.element}
 						/>
