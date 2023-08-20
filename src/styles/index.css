@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.v-container {
-    @apply container;
-    @apply px-5;
-}
-.main-wrapper {
-    @apply flex;
-    @apply flex-col;
-    @apply min-h-screen;
-    @apply justify-between;
-}
 body {
     @apply bg-slate-100;
 }

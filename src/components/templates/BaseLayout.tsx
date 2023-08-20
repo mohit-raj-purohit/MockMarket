@@ -7,7 +7,7 @@ const BaseLayoutTemplate: React.FC = () => {
 	const preferredColorScheme = usePreferredColorScheme();
 
 	return (
-		<div className={`main-wrapper ${preferredColorScheme}`}>
+		<div className={`main-wrapper flex flex-col min-h-screen justify-between ${preferredColorScheme}`}>
 			<Header />
 			<Outlet />
 			<Footer />
