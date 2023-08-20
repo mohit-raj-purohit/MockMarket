@@ -1,7 +1,7 @@
 import React from 'react';
 import {Outlet} from 'react-router-dom';
-import {Footer, Header} from '../molecules';
 import {usePreferredColorScheme} from '../../utils';
+import { Footer, Header } from '../organisms';
 
 const BaseLayoutTemplate: React.FC = () => {
 	const preferredColorScheme = usePreferredColorScheme();
