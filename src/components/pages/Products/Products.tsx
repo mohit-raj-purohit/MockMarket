@@ -1,8 +1,9 @@
+import Container from '../../molecules/Container/Container';
+
 const Products = () => {
 	return (
 		<>
-			{/* Container for demo purpose */}
-			<div className="v-container mx-auto px-6 my-8">
+			<Container className="py-10">
 				<h3 className="text-gray-700 text-2xl font-medium">
 					Wrist Watch
 				</h3>
@@ -475,9 +476,7 @@ const Products = () => {
 						</div>
 					</div>
 				</div>
-			</div>
-
-			{/* Container for demo purpose */}
+			</Container>
 		</>
 	);
 };

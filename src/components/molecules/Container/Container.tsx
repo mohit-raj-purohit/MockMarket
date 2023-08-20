@@ -13,12 +13,12 @@ const Container: React.FC<ContainerProps> = ({
 	...rest
 }) => {
 	return (
-		<div
+		<section
 			className={`container px-5 mx-auto py-3 ${className || ''}`}
 			{...rest}
 		>
 			{children}
-		</div>
+		</section>
 	);
 };
 

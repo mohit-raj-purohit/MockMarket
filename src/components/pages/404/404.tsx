@@ -1,9 +1,10 @@
 import {Link} from 'react-router-dom';
 import PageNotFoundImage from '../../../assets/404.jpg';
 import {HOME_PAGE_PATH} from '../../../constants';
+import Container from '../../molecules/Container/Container';
 const PageNotFound = () => {
 	return (
-		<div className="v-container flex flex-col md:flex-row items-center h-auto mx-auto mt-0 md:mt-auto">
+		<Container className="flex flex-col md:flex-row items-center h-auto mt-0 md:mt-auto">
 			<div className="w-full md:w-1/2 gap-3 pt-9 pb-7 md:py-0">
 				<p className="text-lg font-medium text-orange-600">Oops...</p>
 				<h1 className="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">
@@ -29,7 +30,7 @@ const PageNotFound = () => {
 					alt=""
 				/>
 			</div>
-		</div>
+		</Container>
 	);
 };
 

@@ -1,6 +1,8 @@
+import Container from '../../molecules/Container/Container';
+
 const Home = () => {
 	return (
-		<div className="v-container mx-auto my-8">
+		<Container className='py-10'>
 			<div
 				className="h-64 rounded-md overflow-hidden bg-cover bg-center"
 				style={{
@@ -222,7 +224,7 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Container>
 	);
 };
 
