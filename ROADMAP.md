@@ -10,3 +10,4 @@
 - [ ] Atomic Design
 - [ ] Services for Each API
 - [ ] React Skeleton
+- [ ] Micro Front-end
