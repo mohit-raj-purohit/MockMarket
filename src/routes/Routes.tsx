@@ -1,20 +1,20 @@
 import React from 'react';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import {
-	Categories,
-	Contact,
-	Home,
-	PageNotFound,
-	Products,
-} from '../components/pages';
-import {
 	CATEGORIES_PAGE_PATH,
 	CONTACT_PAGE_PATH,
 	HOME_PAGE_PATH,
 	PAGE_NOT_FOUND_PATH,
 	PRODUCTS_PAGE_PATH,
 } from '../constants';
-import {BaseLayout} from '../components/templates';
+import {
+	BaseLayout,
+	Categories,
+	Contact,
+	Home,
+	PageNotFound,
+	Products,
+} from '../components';
 
 type AppRoute = {
 	path: string;

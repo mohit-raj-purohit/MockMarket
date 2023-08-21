@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import {CiTwitter} from 'react-icons/ci';
 import {AiOutlineGithub} from 'react-icons/ai';
-import Container from '../../molecules/Container/Container';
+import { Container } from '../../molecules';
 const Footer: FC = () => {
 	return (
 		<footer className="bg-gray-800 text-white mt-auto">

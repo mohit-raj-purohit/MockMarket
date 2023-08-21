@@ -12,11 +12,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({className, linkAriaLabel, logoAlt}) => {
 	return (
-		<Link
-			to={HOME_PAGE_PATH}
-			aria-label={linkAriaLabel}
-			className={`flex items-center justify-center ${className || ''}`}
-		>
+		<Link to={HOME_PAGE_PATH} aria-label={linkAriaLabel} className={`flex items-center justify-center ${className || ''}`}>
 			<Image src={logoDark} alt={logoAlt} className="w-28" />
 		</Link>
 	);
