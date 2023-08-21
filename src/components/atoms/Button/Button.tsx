@@ -8,7 +8,7 @@ import React, {
 import './Button.css';
 
 type CommonProps = {
-	variation: 'primary' | 'secondary' | 'link' | 'icon';
+	variation?: 'primary' | 'secondary' | 'link' | 'icon';
 	color?: 'text-white' | 'text-black';
 	className?: string;
 	buttonLabel?: string;
@@ -24,10 +24,10 @@ export type ButtonComponentProps = {
 } & (ButtonProps | LinkProps);
 
 const Button: React.FC<ButtonComponentProps> = ({
-	type = '',
-	variation = '',
-	color = '',
-	className = '',
+	type,
+	variation,
+	color,
+	className,
 	onClick,
 	children,
 	buttonLabel,
