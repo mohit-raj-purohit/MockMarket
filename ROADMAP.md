@@ -11,3 +11,4 @@
 - [ ] Services for Each API
 - [ ] React Skeleton
 - [ ] Micro Front-end
+- [ ] Tanstack/React Query
