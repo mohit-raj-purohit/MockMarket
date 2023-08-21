@@ -10,7 +10,6 @@ type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({
 	type,
-	variation,
 	onClick,
 	children,
 	icon,

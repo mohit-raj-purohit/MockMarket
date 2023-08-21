@@ -1,13 +1,11 @@
 import React, {HTMLAttributes, ReactNode} from 'react';
 
 type ContainerProps = {
-	fluid?: boolean;
 	className?: string;
 	children: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
 const Container: React.FC<ContainerProps> = ({
-	fluid,
 	className,
 	children,
 	...rest
