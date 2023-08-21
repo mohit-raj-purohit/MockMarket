@@ -19,7 +19,7 @@ const FlexCardGrid: React.FC<FlexCardGridProps> = ({
 	return (
 		<div className={`md:flex ${className}`}>
 			<div className="md:w-1/2 md:pr-4">{children1}</div>
-			<div className="md:w-1/2 md:pl-4">{children2}</div>
+			<div className="mt-8 md:mt-0 md:w-1/2 md:pl-4">{children2}</div>
 		</div>
 	);
 };
