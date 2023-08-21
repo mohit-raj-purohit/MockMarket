@@ -9,3 +9,4 @@
 - [ ] Redux Saga/Thunk
 - [ ] Atomic Design
 - [ ] Services for Each API
+- [ ] React Skeleton
