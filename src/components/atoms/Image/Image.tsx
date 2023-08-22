@@ -35,7 +35,7 @@ const Image: React.FC<ImageProps> = ({
 	};
 
 	return (
-		<picture className="block w-full h-full">
+		<picture className="w-full h-full flex items-center">
 			{images?.small && (
 				<source media="(max-width: 767px)" srcSet={images.small} />
 			)}
