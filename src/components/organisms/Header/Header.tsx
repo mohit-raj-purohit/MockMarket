@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
 import {CiMenuBurger, CiSearch, CiShoppingCart} from 'react-icons/ci';
-import {MAIN_NAVIGATION} from '../../../services/navigation.service';
+import {MAIN_NAVIGATION} from '../../../services';
 import {Logo, Navigation} from '../../molecules';
 import {Button} from '../../atoms';
 import Container from '../../molecules/Container/Container';
+import useClickOutside from '../../../hooks/useClickOutside';
 
 const Header: React.FC = () => {
 	const [showMobileNav, setShowMobileNav] = useState(false);
 	const toggleNav = () => {
 		setShowMobileNav((prevState) => !prevState);
 	};
+	useClickOutside
 	return (
 		<header className="header bg-white border-b border-gray-200 sticky top-0 z-10">
 			<Container className="flex justify-between">

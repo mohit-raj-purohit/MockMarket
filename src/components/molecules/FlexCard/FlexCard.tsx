@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Button} from '../../atoms';
+import {Button, Heading, Text} from '../../atoms';
 import {ButtonComponentProps} from '../../atoms/Button/Button';
 
 interface FlexCardProps {
@@ -26,12 +26,14 @@ const FlexCard: FC<FlexCardProps> = ({
 			className="h-64 rounded-md overflow-hidden bg-cover bg-center"
 			style={cardStyle}
 		>
-			<div className="bg-gray-900 bg-opacity-50 flex items-center h-full">
+			<div className="bg-gray-900 bg-opacity-70 flex items-center h-full">
 				<div className="px-10 max-w-xl">
-					<h2 className="text-2xl text-white font-semibold">
+					<Heading level="h2" className="text-white">
 						{title}
-					</h2>
-					<p className="mt-2 text-gray-200">{description}</p>
+					</Heading>
+					<Text tagType="p" className="mt-2 text-gray-200">
+						{description}
+					</Text>
 					<Button className="mt-4" {...cta} />
 				</div>
 			</div>

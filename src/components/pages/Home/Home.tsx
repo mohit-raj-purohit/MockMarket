@@ -1,56 +1,33 @@
 import {FlexCardGrid} from '../../organisms';
 import {Container, FlexCard} from '../../molecules';
+import {getCategories, getCategoryData} from '../../../services';
+import {useEffect, useState} from 'react';
 const Home = () => {
+	const [categories, setCategories] = useState<string[]>([]);
+
+	useEffect(() => {
+		const fetchCategories = async () => {
+			const fetchedCategories = await getCategories();
+			setCategories(fetchedCategories);
+		};
+
+		fetchCategories();
+	}, []);
+
 	return (
 		<Container className="py-10">
 			<FlexCardGrid
 				variation="full"
-				children1={
-					<FlexCard
-						backgroundImage="https://images.unsplash.com/photo-1577655197620-704858b270ac"
-						title="Sport Shoes"
-						description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur."
-						cta={{
-							type: 'link',
-							variation: 'primary',
-							buttonLabel: 'Shop Now',
-							arrow: true,
-						}}
-					/>
-				}
+				children1={<FlexCard {...getCategoryData(categories[0])} />}
 			/>
 			<FlexCardGrid
-				className='mt-8'
+				className="mt-8"
 				variation="50-50"
-				children1={
-					<FlexCard
-						backgroundImage="https://images.unsplash.com/photo-1486401899868-0e435ed85128"
-						title="Games"
-						description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur."
-						cta={{
-							type: 'link',
-							variation: 'secondary',
-							buttonLabel: 'Shop Now',
-							arrow: true,
-						}}
-					/>
-				}
-				children2={
-					<FlexCard
-						backgroundImage="https://images.unsplash.com/photo-1547949003-9792a18a2601"
-						title="Bag Pack"
-						description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur."
-						cta={{
-							type: 'link',
-							variation: 'secondary',
-							buttonLabel: 'Shop Now',
-							arrow: true,
-						}}
-					/>
-				}
+				children1={<FlexCard {...getCategoryData(categories[1])} />}
+				children2={<FlexCard {...getCategoryData(categories[2])} />}
 			/>
 
-			<div className="mt-8">
+			{/* <div className="mt-8">
 				<h3 className="text-gray-600 text-2xl font-medium">Fashions</h3>
 				<div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
 					<div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
@@ -166,7 +143,7 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</Container>
 	);
 };
