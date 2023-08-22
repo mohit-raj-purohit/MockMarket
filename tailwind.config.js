@@ -9,6 +9,9 @@ export default {
 			backgroundImage: {
 				'not-found': "url('/img/hero-pattern.svg')",
 			},
+			backgroundSize: {
+				'80%': '80%',
+			},
 		},
 	},
 	plugins: [],

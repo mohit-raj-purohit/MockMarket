@@ -1,14 +1,28 @@
 import {FlexCardGrid} from '../../organisms';
 import {Container, FlexCard} from '../../molecules';
-import {getCategories, getCategoryData} from '../../../services';
+import {
+	Product,
+	getCategories,
+	getCategoryData,
+	getProductsByCategory,
+} from '../../../services';
 import {useEffect, useState} from 'react';
+import {Heading, Image, Text} from '../../atoms';
+import './Home.css';
 const Home = () => {
 	const [categories, setCategories] = useState<string[]>([]);
+	const [categoryProducts, setCategoryProducts] = useState<Product[]>([]);
+
+	const handleCategoryChange = async (category: string) => {
+		const products = await getProductsByCategory(category);
+		setCategoryProducts(products);
+	};
 
 	useEffect(() => {
 		const fetchCategories = async () => {
 			const fetchedCategories = await getCategories();
 			setCategories(fetchedCategories);
+			handleCategoryChange(fetchedCategories[3]);
 		};
 
 		fetchCategories();
@@ -27,123 +41,44 @@ const Home = () => {
 				children2={<FlexCard {...getCategoryData(categories[2])} />}
 			/>
 
-			{/* <div className="mt-8">
-				<h3 className="text-gray-600 text-2xl font-medium">Fashions</h3>
-				<div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-					<div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+			<div className="mt-12">
+				<Heading level="h2" className="text-gray-600">
+					{categories.length && getCategoryData(categories[3]).title}
+				</Heading>
+				<div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+					{categoryProducts.map((product, index) => (
 						<div
-							className="flex items-end justify-end h-56 w-full bg-cover"
-							style={{
-								backgroundImage:
-									'url("https://images.unsplash.com/photo-1563170351-be82bc888aa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=376&q=80")',
-							}}
+							key={index}
+							className="w-full bg-white max-w-sm mx-auto rounded-md shadow-md overflow-hidden"
 						>
-							<button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-								<svg
-									className="h-5 w-5"
-									fill="none"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									viewBox="0 0 24 24"
-									stroke="currentColor"
+							<div className="h-56 w-full p-3">
+								<Image
+									src={product.image}
+									alt={product.title}
+									className="w-full h-full object-contain mix-blend-multiply"
+								/>
+							</div>
+							<div className="px-5 py-3">
+								<Heading
+									level="h5"
+									className="text-gray-700 tracking-normal font-medium"
 								>
-									<path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-								</svg>
-							</button>
-						</div>
-						<div className="px-5 py-3">
-							<h3 className="text-gray-700 uppercase">Chanel</h3>
-							<span className="text-gray-500 mt-2">$12</span>
-						</div>
-					</div>
-					<div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-						<div
-							className="flex items-end justify-end h-56 w-full bg-cover"
-							style={{
-								backgroundImage:
-									'url("https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80")',
-							}}
-						>
-							<button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-								<svg
-									className="h-5 w-5"
-									fill="none"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									viewBox="0 0 24 24"
-									stroke="currentColor"
+									{product.title}
+								</Heading>
+								<Text
+									tagType="span"
+									className="text-gray-500 mt-2"
 								>
-									<path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-								</svg>
-							</button>
+									{product.price.toLocaleString('en-IN', {
+										style: 'currency',
+										currency: 'INR',
+									})}
+								</Text>
+							</div>
 						</div>
-						<div className="px-5 py-3">
-							<h3 className="text-gray-700 uppercase">Man Mix</h3>
-							<span className="text-gray-500 mt-2">$12</span>
-						</div>
-					</div>
-					<div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-						<div
-							className="flex items-end justify-end h-56 w-full bg-cover"
-							style={{
-								backgroundImage:
-									'url("https://images.unsplash.com/photo-1532667449560-72a95c8d381b?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80")',
-							}}
-						>
-							<button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-								<svg
-									className="h-5 w-5"
-									fill="none"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-								</svg>
-							</button>
-						</div>
-						<div className="px-5 py-3">
-							<h3 className="text-gray-700 uppercase">
-								Classic watch
-							</h3>
-							<span className="text-gray-500 mt-2">$12</span>
-						</div>
-					</div>
-					<div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-						<div
-							className="flex items-end justify-end h-56 w-full bg-cover"
-							style={{
-								backgroundImage:
-									'url("https://images.unsplash.com/photo-1590664863685-a99ef05e9f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=345&q=80")',
-							}}
-						>
-							<button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-								<svg
-									className="h-5 w-5"
-									fill="none"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-								</svg>
-							</button>
-						</div>
-						<div className="px-5 py-3">
-							<h3 className="text-gray-700 uppercase">
-								woman mix
-							</h3>
-							<span className="text-gray-500 mt-2">$12</span>
-						</div>
-					</div>
+					))}
 				</div>
-			</div> */}
+			</div>
 		</Container>
 	);
 };

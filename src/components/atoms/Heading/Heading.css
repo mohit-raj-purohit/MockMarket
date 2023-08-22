@@ -1,3 +1,23 @@
+.heading-h1 {
+    @apply text-4xl;
+}
+
 .heading-h2 {
-    @apply text-2xl font-semibold;
+    @apply text-2xl;
+}
+
+.heading-h3 {
+    @apply text-xl;
+}
+
+.heading-h4 {
+    @apply text-lg;
+}
+
+.heading-h5 {
+    @apply text-base;
+}
+
+.heading-h6 {
+    @apply text-sm;
 }

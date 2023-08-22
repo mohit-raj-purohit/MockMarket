@@ -35,7 +35,7 @@ const Image: React.FC<ImageProps> = ({
 	};
 
 	return (
-		<picture>
+		<picture className="block w-full h-full">
 			{images?.small && (
 				<source media="(max-width: 767px)" srcSet={images.small} />
 			)}
@@ -53,7 +53,6 @@ const Image: React.FC<ImageProps> = ({
 				alt={alt}
 				onLoad={handleLoad}
 				onError={handleError}
-				style={{maxWidth: '100%', height: 'auto'}}
 				className={className || ''}
 			/>
 		</picture>

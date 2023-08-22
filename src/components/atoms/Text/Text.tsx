@@ -10,7 +10,7 @@ const Text: React.FC<TextProps> = ({children, tagType, className, ...rest}) => {
 	const TextTag = tagType;
 
 	return (
-		<TextTag className={`${className || ''}`} {...rest}>
+		<TextTag className={`tracking-wide ${className || ''}`} {...rest}>
 			{children}
 		</TextTag>
 	);
