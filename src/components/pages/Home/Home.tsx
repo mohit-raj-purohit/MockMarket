@@ -1,5 +1,5 @@
 import {FlexCardGrid, ProductList} from '../../organisms';
-import {Container, TeaserCard} from '../../molecules';
+import {Container, TeaserCard, TeaserCardSkeleton} from '../../molecules';
 import {
 	Product,
 	getCategories,
@@ -33,13 +33,31 @@ const Home = () => {
 		<Container className="py-10">
 			<FlexCardGrid
 				variation="full"
-				children1={<TeaserCard {...getCategoryData(categories[0])} />}
+				children1={
+					categories.length ? (
+						<TeaserCard {...getCategoryData(categories[0])} />
+					) : (
+						<TeaserCardSkeleton />
+					)
+				}
 			/>
 			<FlexCardGrid
 				className="mt-8"
 				variation="50-50"
-				children1={<TeaserCard {...getCategoryData(categories[1])} />}
-				children2={<TeaserCard {...getCategoryData(categories[2])} />}
+				children1={
+					categories.length ? (
+						<TeaserCard {...getCategoryData(categories[1])} />
+					) : (
+						<TeaserCardSkeleton />
+					)
+				}
+				children2={
+					categories.length ? (
+						<TeaserCard {...getCategoryData(categories[2])} />
+					) : (
+						<TeaserCardSkeleton />
+					)
+				}
 			/>
 			<ProductList
 				title={categoryTitle.toLocaleUpperCase()}
