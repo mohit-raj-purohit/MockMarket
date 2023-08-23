@@ -13,8 +13,8 @@ const Home = () => {
 	const [categoryProducts, setCategoryProducts] = useState<Product[]>([]);
 	const [categoryTitle, setCategoryTitle] = useState<string>('');
 
-	const handleCategoryChange = async (category: string) => {
-		const products = await getProductsByCategory(category);
+	const handleCategoryChange = async (category: string, limit: number = 4) => {
+		const products = await getProductsByCategory(category, limit);
 		setCategoryTitle(category);
 		setCategoryProducts(products);
 	};
@@ -23,7 +23,7 @@ const Home = () => {
 		const fetchCategories = async () => {
 			const fetchedCategories = await getCategories();
 			setCategories(fetchedCategories);
-			handleCategoryChange(fetchedCategories[1]);
+			handleCategoryChange(fetchedCategories[3], 4);
 		};
 
 		fetchCategories();

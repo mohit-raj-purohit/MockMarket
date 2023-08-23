@@ -12,7 +12,7 @@ const ProductImageWrapper: FC<ReactChildrenProps> = ({children}) => {
 };
 
 const ProductInfoWrapper: FC<ReactChildrenProps> = ({children}) => {
-	return <div className="px-5 py-3">{children}</div>;
+	return <div className="px-3 py-3">{children}</div>;
 };
 
 const ProductMainWrapper: FC<ReactChildrenProps> = ({children}) => {
@@ -62,7 +62,6 @@ const ProductCardSkeleton: FC<SkeletonProps & {repeat?: number}> = ({
 			<ProductInfoWrapper>
 				<Skeleton
 					count={2.5}
-					height={11}
 					className="mt-2 font-medium"
 				/>
 				<Skeleton width={80} />
