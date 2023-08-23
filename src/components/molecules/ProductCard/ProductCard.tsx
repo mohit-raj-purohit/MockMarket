@@ -61,7 +61,7 @@ const ProductCardSkeleton: FC<SkeletonProps & {repeat?: number}> = ({
 			</ProductImageWrapper>
 			<ProductInfoWrapper>
 				<Skeleton
-					count={2.5}
+					count={2}
 					className="mt-2 font-medium"
 				/>
 				<Skeleton width={80} />
