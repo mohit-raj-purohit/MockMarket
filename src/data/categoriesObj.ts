@@ -8,14 +8,14 @@ interface categoryHomeType {
 	cta: ButtonComponentProps;
 }
 
-export const CATEGORIES_HOME_PAGE: categoryHomeType[] = [
+export const Categories: categoryHomeType[] = [
 	{
 		key: 'electronics',
 		title: 'Electronics',
 		description:
 			'Unveiling the world of circuits and innovation, from pocket-sized devices to intricate industrial systems.',
 		backgroundImage:
-			'https://images.unsplash.com/photo-1550009158-9ebf69173e03',
+			'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=1280&q=144',
 		cta: {
 			type: 'link',
 			variation: 'primary',
@@ -29,7 +29,7 @@ export const CATEGORIES_HOME_PAGE: categoryHomeType[] = [
 		description:
 			'A treasure trove of artistry, where precious metals and gemstones intertwine to create timeless adornments.',
 		backgroundImage:
-			'https://images.unsplash.com/photo-1628926379972-9843ad139a8c',
+			'https://images.unsplash.com/photo-1628926379972-9843ad139a8c?auto=format&fit=crop&w=1280&q=144',
 		cta: {
 			type: 'link',
 			variation: 'secondary',
@@ -42,7 +42,7 @@ export const CATEGORIES_HOME_PAGE: categoryHomeType[] = [
 		title: `Men's clothing`,
 		description: `Redefining men's fashion with tailored classics and contemporary ensembles for every facet of life.`,
 		backgroundImage:
-			'https://images.unsplash.com/photo-1479064555552-3ef4979f8908',
+			'https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=1280&q=144',
 		cta: {
 			type: 'link',
 			variation: 'secondary',
@@ -55,7 +55,7 @@ export const CATEGORIES_HOME_PAGE: categoryHomeType[] = [
 		title: `Women's clothing`,
 		description: `Embracing diversity and style, offering elegant dresses to everyday wear that epitomize modern femininity.`,
 		backgroundImage:
-			'https://images.unsplash.com/photo-1516762689617-e1cffcef479d',
+			'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=1280&q=144',
 		cta: {
 			type: 'link',
 			variation: 'secondary',
@@ -66,5 +66,5 @@ export const CATEGORIES_HOME_PAGE: categoryHomeType[] = [
 ];
 
 export const getCategoryData = (category: string) => {
-	return CATEGORIES_HOME_PAGE.filter((cat) => cat.key === category)[0];
+	return Categories.filter((cat) => cat.key === category)[0];
 };

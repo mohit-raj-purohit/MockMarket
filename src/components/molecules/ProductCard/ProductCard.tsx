@@ -1,7 +1,7 @@
 import {FC, ReactNode} from 'react';
 import {Heading, Image, Text} from '../../atoms';
-import {Product} from '../../../services';
 import Skeleton, {SkeletonProps} from 'react-loading-skeleton';
+import {Product} from '../../../types/Product';
 
 interface ReactChildrenProps {
 	children: ReactNode;
@@ -60,10 +60,7 @@ const ProductCardSkeleton: FC<SkeletonProps & {repeat?: number}> = ({
 				<Skeleton height={210} />
 			</ProductImageWrapper>
 			<ProductInfoWrapper>
-				<Skeleton
-					count={2}
-					className="mt-2 font-medium"
-				/>
+				<Skeleton count={2} className="mt-2 font-medium" />
 				<Skeleton width={80} />
 			</ProductInfoWrapper>
 		</ProductMainWrapper>

@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {CiMenuBurger, CiSearch, CiShoppingCart} from 'react-icons/ci';
-import {MAIN_NAVIGATION} from '../../../services';
 import {Logo, Navigation} from '../../molecules';
 import {Button} from '../../atoms';
 import Container from '../../molecules/Container/Container';
 import {useDispatch} from 'react-redux';
 import {addItem, deleteItem} from '../../../redux/slices/CartSlice';
 import {AppDispatch} from '../../../redux/store/store';
+import {MAIN_NAVIGATION} from '../../../data/navigationObj';
 // import { clearCart } from '../../../redux/actions';
 const Header: React.FC = () => {
 	const [showMobileNav, setShowMobileNav] = useState(false);

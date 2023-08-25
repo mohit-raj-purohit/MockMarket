@@ -1,10 +1,7 @@
-import axios from 'axios';
-
-const instance = axios.create({
-	baseURL: 'https://fakestoreapi.com',
-});
+import {CATEGORIES_URL} from '../constants/api';
+import {apiInstance} from './apiInstance';
 
 export const fetchCategories = async () => {
-	const response = await instance.get('/products/categories');
+	const response = await apiInstance.get(CATEGORIES_URL);
 	return response.data;
 };
