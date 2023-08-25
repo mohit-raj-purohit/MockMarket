@@ -1,44 +1,27 @@
-import {CSSProperties, FC, ReactNode} from 'react';
+import {FC} from 'react';
 import {Button, Heading, Text} from '../../atoms';
-import {ButtonComponentProps} from '../../atoms/Button/Button';
-import Skeleton, {SkeletonProps} from 'react-loading-skeleton';
-
-interface TeaserCardProps {
-	backgroundImage?: string;
-	title?: string;
-	description?: string;
-	cta?: ButtonComponentProps;
-}
-
-interface ReactChildrenProps {
-	children: ReactNode;
-	style?: CSSProperties;
-}
-
-const TeaserCardWrapper: FC<ReactChildrenProps> = ({children, style}) => {
-	return (
-		<div
-			className="h-64 rounded-md overflow-hidden bg-cover bg-center"
-			style={style}
-		>
-			<div className="bg-gray-900 bg-opacity-70 flex items-center h-full">
-				<div className="px-10 max-w-xl">{children}</div>
-			</div>
-		</div>
-	);
-};
-
+import {TeaserCardWrapper} from './_TeaserCardWrapper';
+import {TeaserCardSkeleton} from './_TeaserCardSkeleton';
+import {TeaserCardProps} from './types/interface';
+import {createStyle, CSSProperties} from '../../../utils';
+// Teaser card component
 const TeaserCard: FC<TeaserCardProps> = ({
 	backgroundImage,
 	title,
 	description,
 	cta,
+	isLoading,
 }) => {
-	const cardStyle: CSSProperties = {
-		backgroundImage: backgroundImage
-			? `url(${backgroundImage})`
-			: undefined,
-	};
+	const styles: CSSProperties[] = [
+		{backgroundImage: `url(${backgroundImage})`},
+	];
+	const cardStyle = createStyle(styles);
+
+	console.log(cardStyle);
+
+	if (isLoading) {
+		return <TeaserCardSkeleton />;
+	}
 
 	return (
 		<TeaserCardWrapper style={cardStyle}>
@@ -53,18 +36,4 @@ const TeaserCard: FC<TeaserCardProps> = ({
 	);
 };
 
-const TeaserCardSkeleton: FC<SkeletonProps & {repeat?: number}> = ({
-	repeat = 1,
-}) => {
-	const skeletons = Array.from({length: repeat}, (_, index) => (
-		<TeaserCardWrapper key={index}>
-			<Skeleton width={150} className='heading-h2' />
-			<Skeleton width={300} count={1.7} className='mt-2' />
-			<Skeleton width={150} height={36} className='mt-4' />
-		</TeaserCardWrapper>
-	));
-	return <>{skeletons}</>;
-};
-
-export {TeaserCardSkeleton};
 export default TeaserCard;

@@ -1,1 +1,1 @@
-export {TeaserCardSkeleton, default as TeaserCard} from './TeaserCard';
+export {default as TeaserCard} from './TeaserCard';

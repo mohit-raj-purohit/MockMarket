@@ -1,5 +1,5 @@
 import {FlexCardGrid, ProductList} from '../../organisms';
-import {Container, TeaserCard, TeaserCardSkeleton} from '../../molecules';
+import {Container, TeaserCard} from '../../molecules';
 import {
 	Product,
 	getCategories,
@@ -13,9 +13,10 @@ const Home = () => {
 	const [categoryProducts, setCategoryProducts] = useState<Product[]>([]);
 	const [categoryTitle, setCategoryTitle] = useState<string>('');
 
-	const handleCategoryChange = async (category: string, limit: number = 4) => {
-		const products = await getProductsByCategory(category, limit);
-		setCategoryTitle(category);
+	const handleCategoryChange = async (category: string) => {
+		const products = await getProductsByCategory(category);
+		const title = category.toUpperCase();
+		setCategoryTitle(title);
 		setCategoryProducts(products);
 	};
 
@@ -23,7 +24,7 @@ const Home = () => {
 		const fetchCategories = async () => {
 			const fetchedCategories = await getCategories();
 			setCategories(fetchedCategories);
-			handleCategoryChange(fetchedCategories[3], 4);
+			handleCategoryChange(fetchedCategories[3]);
 		};
 
 		fetchCategories();
@@ -31,38 +32,14 @@ const Home = () => {
 
 	return (
 		<Container className="py-10">
-			<FlexCardGrid
-				variation="full"
-				children1={
-					categories.length ? (
-						<TeaserCard {...getCategoryData(categories[0])} />
-					) : (
-						<TeaserCardSkeleton />
-					)
-				}
-			/>
-			<FlexCardGrid
-				className="mt-8"
-				variation="50-50"
-				children1={
-					categories.length ? (
-						<TeaserCard {...getCategoryData(categories[1])} />
-					) : (
-						<TeaserCardSkeleton />
-					)
-				}
-				children2={
-					categories.length ? (
-						<TeaserCard {...getCategoryData(categories[2])} />
-					) : (
-						<TeaserCardSkeleton />
-					)
-				}
-			/>
-			<ProductList
-				title={categoryTitle.toLocaleUpperCase()}
-				productList={categoryProducts}
-			/>
+			<FlexCardGrid variation="full">
+				<TeaserCard isLoading={!categories.length} {...getCategoryData(categories[0])} />
+			</FlexCardGrid>
+			<FlexCardGrid className="mt-8" variation="50-50">
+				<TeaserCard isLoading={!categories.length} {...getCategoryData(categories[1])} />
+				<TeaserCard isLoading={!categories.length} {...getCategoryData(categories[2])} />
+			</FlexCardGrid>
+			<ProductList title={categoryTitle} productList={categoryProducts} />
 		</Container>
 	);
 };

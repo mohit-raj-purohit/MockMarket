@@ -4,9 +4,23 @@ import {MAIN_NAVIGATION} from '../../../services';
 import {Logo, Navigation} from '../../molecules';
 import {Button} from '../../atoms';
 import Container from '../../molecules/Container/Container';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem,deleteItem } from '../../../redux/slices/CartSlice';
+import {AppState, AppDispatch} from '../../../redux/store/store';
+// import { clearCart } from '../../../redux/actions';
 const Header: React.FC = () => {
 	const [showMobileNav, setShowMobileNav] = useState(false);
+	const dispatch = useDispatch<AppDispatch>();
+	const data = useSelector((state: AppState) => {
+		return state.cart;
+	});
+	const handleHamburgerClick = () => {
+		dispatch(addItem({id: 1}));
+	}
+	const handleEmptyCart = () => {
+		dispatch(deleteItem());
+	}
+	console.log(data);
 	const toggleNav = () => {
 		setShowMobileNav((prevState) => !prevState);
 	};
@@ -18,10 +32,10 @@ const Header: React.FC = () => {
 					navigation={MAIN_NAVIGATION}
 					showMobileNav={showMobileNav}
 				/>
-				<Button variation='icon' color='text-black' type="button" className="ml-auto mr-3 items-center justify-center">
+				<Button variation='icon' color='text-black' type="button" className="ml-auto mr-3 items-center justify-center" onClick={handleEmptyCart}>
 					<CiSearch size={25} />
 				</Button>
-				<Button variation='icon' color='text-black' type="button" className="mr-3 md:mr-0 items-center justify-center">
+				<Button variation='icon' color='text-black' type="button" className="mr-3 md:mr-0 items-center justify-center" onClick={handleHamburgerClick}>
 					<CiShoppingCart size={25} />
 				</Button>
 				<Button variation='icon' color='text-black' type="button" onClick={toggleNav} className="md:hidden items-center justify-end">
