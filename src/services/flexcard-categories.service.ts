@@ -58,7 +58,7 @@ export const CATEGORIES_HOME_PAGE: categoryHomeType[] = [
 			'https://images.unsplash.com/photo-1516762689617-e1cffcef479d',
 		cta: {
 			type: 'link',
-			variation: 'primary',
+			variation: 'secondary',
 			buttonLabel: 'Shop Now',
 			arrow: true,
 		},

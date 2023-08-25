@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import {Button, Heading, Text} from '../../atoms';
-import {TeaserCardWrapper} from './_TeaserCardWrapper';
-import {TeaserCardSkeleton} from './_TeaserCardSkeleton';
+import {TeaserCardWrapper} from './TeaserCardWrapper';
+import {TeaserCardSkeleton} from './TeaserCardSkeleton';
 import {TeaserCardProps} from './types/interface';
 import {createStyle, CSSProperties} from '../../../utils';
 // Teaser card component
@@ -17,7 +17,6 @@ const TeaserCard: FC<TeaserCardProps> = ({
 	];
 	const cardStyle = createStyle(styles);
 
-	console.log(cardStyle);
 
 	if (isLoading) {
 		return <TeaserCardSkeleton />;

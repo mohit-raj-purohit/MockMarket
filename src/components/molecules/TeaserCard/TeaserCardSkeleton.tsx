@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import Skeleton, {SkeletonProps} from 'react-loading-skeleton';
-import {TeaserCardWrapper} from './_TeaserCardWrapper';
+import {TeaserCardWrapper} from './TeaserCardWrapper';
 
 export const TeaserCardSkeleton: FC<SkeletonProps & {repeat?: number}> = ({
 	repeat = 1,

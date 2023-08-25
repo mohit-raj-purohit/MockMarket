@@ -1,13 +1,10 @@
 import axios from 'axios';
 
-export const getCategories = async () => {
-	try {
-		const response = await axios.get<string[]>(
-			'https://fakestoreapi.com/products/categories'
-		);
-		return response.data;
-	} catch (error) {
-		console.error('Error fetching categories:', error);
-		return [];
-	}
+const instance = axios.create({
+	baseURL: 'https://fakestoreapi.com',
+});
+
+export const fetchCategories = async () => {
+	const response = await instance.get('/products/categories');
+	return response.data;
 };
