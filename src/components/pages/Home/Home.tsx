@@ -5,9 +5,11 @@ import {getCategoryData} from '../../../data/categoriesObj';
 import useProductsForCategory from '../../../hooks/useProductsForCategory';
 const Home = () => {
 	const {categories, loading: categoriesLoading} = useCategories();
-	const {products, loading: productsLoading} = useProductsForCategory(
-		categories[3]
-	);
+	const {
+		products,
+		categoryTitle,
+		loading: productsLoading,
+	} = useProductsForCategory(categories[3]);
 
 	return (
 		<Container className="py-10">
@@ -28,7 +30,7 @@ const Home = () => {
 				/>
 			</FlexCardGrid>
 			<ProductList
-				title={'test'}
+				title={categoryTitle}
 				productList={products}
 				isLoading={productsLoading}
 			/>
