@@ -1,7 +1,7 @@
 import {ButtonComponentProps} from '../components/atoms/Button/Button';
 
 interface categoryHomeType {
-	key: string;
+	id: string;
 	title: string;
 	description: string;
 	backgroundImage: string;
@@ -10,7 +10,7 @@ interface categoryHomeType {
 
 export const Categories: categoryHomeType[] = [
 	{
-		key: 'electronics',
+		id: 'electronics',
 		title: 'Electronics',
 		description:
 			'Unveiling the world of circuits and innovation, from pocket-sized devices to intricate industrial systems.',
@@ -24,7 +24,7 @@ export const Categories: categoryHomeType[] = [
 		},
 	},
 	{
-		key: 'jewelery',
+		id: 'jewelery',
 		title: 'Jewellery',
 		description:
 			'A treasure trove of artistry, where precious metals and gemstones intertwine to create timeless adornments.',
@@ -38,7 +38,7 @@ export const Categories: categoryHomeType[] = [
 		},
 	},
 	{
-		key: `men's clothing`,
+		id: `men's clothing`,
 		title: `Men's clothing`,
 		description: `Redefining men's fashion with tailored classics and contemporary ensembles for every facet of life.`,
 		backgroundImage:
@@ -51,7 +51,7 @@ export const Categories: categoryHomeType[] = [
 		},
 	},
 	{
-		key: `women's clothing`,
+		id: `women's clothing`,
 		title: `Women's clothing`,
 		description: `Embracing diversity and style, offering elegant dresses to everyday wear that epitomize modern femininity.`,
 		backgroundImage:
@@ -66,5 +66,5 @@ export const Categories: categoryHomeType[] = [
 ];
 
 export const getCategoryData = (category: string) => {
-	return Categories.filter((cat) => cat.key === category)[0];
+	return Categories.filter((cat) => cat.id === category)[0];
 };

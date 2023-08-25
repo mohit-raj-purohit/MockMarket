@@ -3,7 +3,7 @@ import {Product} from '../types/Product';
 import {fetchProducts} from '../services';
 import {getCategoryData} from '../data/categoriesObj';
 
-const useProductsForCategory = (category: string) => {
+const useProductsForCategory = (category: string = '') => {
 	const [products, setProducts] = useState<Product[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [categoryTitle, setCategoryTitle] = useState('');
