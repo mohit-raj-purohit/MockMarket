@@ -9,9 +9,10 @@ const ProductList: React.FC<ProductListProps> = ({
 	title,
 	productList,
 	isLoading,
+	skeletonCount,
 }) => {
 	if (isLoading) {
-		return <ProductListSkeleton />;
+		return <ProductListSkeleton repeat={skeletonCount} />;
 	}
 	return (
 		<div className="mt-12">

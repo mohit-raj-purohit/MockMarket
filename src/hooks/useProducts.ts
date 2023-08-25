@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {Product} from '../types/Product';
 import {fetchProducts} from '../services';
 
-const useProductList = (category: string = '') => {
+const useProducts = (category: string = '') => {
 	const [products, setProducts] = useState<Product[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState('');
@@ -26,4 +26,4 @@ const useProductList = (category: string = '') => {
 	return {products, loading, error};
 };
 
-export default useProductList;
+export default useProducts;

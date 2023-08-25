@@ -1,39 +1,22 @@
-import {FC, ReactNode} from 'react';
+import {FC} from 'react';
 import {Heading, Image, Text} from '../../atoms';
-import Skeleton, {SkeletonProps} from 'react-loading-skeleton';
 import {Product} from '../../../types/Product';
+import {Link} from 'react-router-dom';
+import {PRODUCT_PAGE_PATH} from '../../../constants';
 
-interface ReactChildrenProps {
-	children: ReactNode;
-}
-
-const ProductImageWrapper: FC<ReactChildrenProps> = ({children}) => {
-	return <div className="h-56 w-full p-3">{children}</div>;
-};
-
-const ProductInfoWrapper: FC<ReactChildrenProps> = ({children}) => {
-	return <div className="px-3 py-3">{children}</div>;
-};
-
-const ProductMainWrapper: FC<ReactChildrenProps> = ({children}) => {
+const ProductCard: FC<Product> = ({id, image, title, price}) => {
 	return (
 		<div className="w-full bg-white max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-			{children}
-		</div>
-	);
-};
-
-const ProductCard: FC<Product> = ({image, title, price}) => {
-	return (
-		<ProductMainWrapper>
-			<ProductImageWrapper>
-				<Image
-					src={image}
-					alt={title}
-					className="w-full h-full object-contain mix-blend-multiply"
-				/>
-			</ProductImageWrapper>
-			<ProductInfoWrapper>
+			<div className="h-56 w-full p-3">
+				<Link to={`${PRODUCT_PAGE_PATH}/${id}`}>
+					<Image
+						src={image}
+						alt={title}
+						className="w-full h-full object-contain mix-blend-multiply"
+					/>
+				</Link>
+			</div>
+			<div className="px-3 py-3">
 				<Heading
 					level="h5"
 					className="text-gray-700 tracking-normal font-medium mt-2"
@@ -46,27 +29,8 @@ const ProductCard: FC<Product> = ({image, title, price}) => {
 						currency: 'INR',
 					})}
 				</Text>
-			</ProductInfoWrapper>
-		</ProductMainWrapper>
+			</div>
+		</div>
 	);
 };
-
-const ProductCardSkeleton: FC<SkeletonProps & {repeat?: number}> = ({
-	repeat = 1,
-}) => {
-	const skeletons = Array.from({length: repeat}, (_, index) => (
-		<ProductMainWrapper key={index}>
-			<ProductImageWrapper>
-				<Skeleton height={210} />
-			</ProductImageWrapper>
-			<ProductInfoWrapper>
-				<Skeleton count={2} className="mt-2 font-medium" />
-				<Skeleton width={80} />
-			</ProductInfoWrapper>
-		</ProductMainWrapper>
-	));
-	return <>{skeletons}</>;
-};
-
-export {ProductCardSkeleton};
 export default ProductCard;
