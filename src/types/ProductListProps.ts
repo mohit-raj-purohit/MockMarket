@@ -5,4 +5,5 @@ export interface ProductListProps {
 	productList: Array<Product>;
 	isLoading?: boolean;
 	skeletonCount?: number;
+	wrapperClassName?: string;
 }

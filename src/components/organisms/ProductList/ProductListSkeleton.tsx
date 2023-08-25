@@ -4,12 +4,13 @@ import {ProductCardSkeleton} from '../../molecules';
 import Skeleton from 'react-loading-skeleton';
 
 interface ProductListSkeletonProps {
-	repeat?:number
+	repeat?:number,
+	wrapperClassName?:string
 }
 
-const ProductListSkeleton: React.FC<ProductListSkeletonProps> = ({repeat = 4}) => {
+const ProductListSkeleton: React.FC<ProductListSkeletonProps> = ({repeat = 4, wrapperClassName=''}) => {
 	return (
-		<div className="mt-12">
+		<div className={wrapperClassName}>
 			<Heading level="h2" className="text-gray-600">
 				<Skeleton width={200} />
 			</Heading>

@@ -30,6 +30,7 @@ const Home = () => {
 				/>
 			</FlexCardGrid>
 			<ProductList
+				wrapperClassName="mt-12"
 				title={categoryTitle}
 				productList={products}
 				isLoading={productsLoading}

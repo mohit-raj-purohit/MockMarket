@@ -10,12 +10,13 @@ const ProductList: React.FC<ProductListProps> = ({
 	productList,
 	isLoading,
 	skeletonCount,
+	wrapperClassName='',
 }) => {
 	if (isLoading) {
-		return <ProductListSkeleton repeat={skeletonCount} />;
+		return <ProductListSkeleton wrapperClassName={wrapperClassName} repeat={skeletonCount} />;
 	}
 	return (
-		<div className="mt-12">
+		<div className={wrapperClassName}>
 			<Heading level="h2" className="text-gray-600">
 				{title}
 			</Heading>
