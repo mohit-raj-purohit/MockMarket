@@ -1,8 +1,8 @@
-// categoriesThunks.ts
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {setCategories} from '../slices/CategoriesSlice';
 import {AppState} from '../store/store';
 import {fetchCategories} from '../../services';
+import {arraysAreEqual} from '../../utils';
 
 export const getCategories = createAsyncThunk(
 	'categories/getCategories',
@@ -17,8 +17,3 @@ export const getCategories = createAsyncThunk(
 		return newCategories;
 	}
 );
-
-// Utility function to compare arrays
-function arraysAreEqual(arr1: any[], arr2: any[]) {
-	return JSON.stringify(arr1) === JSON.stringify(arr2);
-}
