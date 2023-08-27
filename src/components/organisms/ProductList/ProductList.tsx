@@ -30,3 +30,8 @@ const ProductList: React.FC<ProductListProps> = ({
 };
 
 export default ProductList;
+
+// propTypes
+// types
+// interface
+

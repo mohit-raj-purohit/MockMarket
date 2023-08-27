@@ -1,40 +1,29 @@
-import {FlexCardGrid, ProductList} from '../../organisms';
+import {FlexCardGrid} from '../../organisms';
 import {Container, TeaserCard} from '../../molecules';
 import useCategories from '../../../hooks/useCategories';
-import {getCategoryData} from '../../../data/categoriesObj';
-import useProductsForCategory from '../../../hooks/useProductsForCategory';
+import { CATEGORY_PAGE_PATH } from '../../../constants';
 const Home = () => {
 	const {categories, loading: categoriesLoading} = useCategories();
-	const {
-		products,
-		categoryTitle,
-		loading: productsLoading,
-	} = useProductsForCategory(categories[3]);
-
 	return (
 		<Container className="py-10">
 			<FlexCardGrid variation="full">
-				<TeaserCard
-					isLoading={categoriesLoading}
-					{...getCategoryData(categories[0])}
-				/>
+				<TeaserCard isLoading={categoriesLoading} {...categories[0]}>
+					<TeaserCard.Action to={`${CATEGORY_PAGE_PATH}/${categories[0]?.id}`} variation='primary'>Shop now</TeaserCard.Action>
+				</TeaserCard>
 			</FlexCardGrid>
 			<FlexCardGrid className="mt-8" variation="50-50">
-				<TeaserCard
-					isLoading={categoriesLoading}
-					{...getCategoryData(categories[1])}
-				/>
-				<TeaserCard
-					isLoading={categoriesLoading}
-					{...getCategoryData(categories[2])}
-				/>
+				<TeaserCard isLoading={categoriesLoading} {...categories[1]}>
+					<TeaserCard.Action to={`${CATEGORY_PAGE_PATH}/${categories[1]?.id}`} variation='secondary-light'>Shop now</TeaserCard.Action>
+				</TeaserCard>
+				<TeaserCard isLoading={categoriesLoading} {...categories[2]}>
+					<TeaserCard.Action to={`${CATEGORY_PAGE_PATH}/${categories[2]?.id}`} variation='secondary-light'>Shop now</TeaserCard.Action>
+				</TeaserCard>
 			</FlexCardGrid>
-			<ProductList
-				wrapperClassName="mt-12"
-				title={categoryTitle}
-				productList={products}
-				isLoading={productsLoading}
-			/>
+			<FlexCardGrid className="mt-8" variation="full">
+				<TeaserCard isLoading={categoriesLoading} {...categories[3]}>
+					<TeaserCard.Action to={`${CATEGORY_PAGE_PATH}/${categories[3]?.id}`} variation='secondary-light'>Shop now</TeaserCard.Action>
+				</TeaserCard>
+			</FlexCardGrid>
 		</Container>
 	);
 };

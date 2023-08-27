@@ -1,9 +1,10 @@
 // src/hooks/useCategories.ts
 import {useEffect, useState} from 'react';
-import { fetchCategories } from '../services';
+import {fetchCategories} from '../services';
+import {Categories} from '../types/Categories';
 
 const useCategories = () => {
-	const [categories, setCategories] = useState<string[]>([]);
+	const [categories, setCategories] = useState<Categories[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState('');
 

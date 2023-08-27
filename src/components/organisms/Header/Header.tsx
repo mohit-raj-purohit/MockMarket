@@ -32,7 +32,7 @@ const Header: React.FC = () => {
 					showMobileNav={showMobileNav}
 				/>
 				<Button
-					variation="icon"
+					variation="link-dark"
 					color="text-black"
 					type="button"
 					className="ml-auto mr-3 items-center justify-center"
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
 					<CiSearch size={25} />
 				</Button>
 				<Button
-					variation="icon"
+					variation="link-dark"
 					color="text-black"
 					type="button"
 					className="mr-3 md:mr-0 items-center justify-center"
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
 					<CiShoppingCart size={25} />
 				</Button>
 				<Button
-					variation="icon"
+					variation="link-dark"
 					color="text-black"
 					type="button"
 					onClick={toggleNav}

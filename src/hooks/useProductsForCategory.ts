@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Product} from '../types/Product';
 import {fetchProducts} from '../services';
-import {getCategoryData} from '../data/categoriesObj';
 
 const useProductsForCategory = (category: string = '') => {
 	const [products, setProducts] = useState<Product[]>([]);
@@ -12,7 +11,7 @@ const useProductsForCategory = (category: string = '') => {
 	useEffect(() => {
 		const fetchProductData = async () => {
 			if (category) {
-				let title = getCategoryData(category).title;
+				let title = category;
 				setCategoryTitle(title);
 				try {
 					const productData = await fetchProducts(category);

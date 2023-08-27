@@ -1,86 +1,62 @@
-import React, {
-	MouseEventHandler,
-	ButtonHTMLAttributes,
-	AnchorHTMLAttributes,
-	ReactNode,
-} from 'react';
-
+import React, {ButtonHTMLAttributes, ReactNode} from 'react';
 import './Button.css';
+import {Link} from 'react-router-dom';
 
-type CommonProps = {
-	variation?: 'primary' | 'secondary' | 'link' | 'icon';
-	color?: 'text-white' | 'text-black';
+export type ButtonProps = {
+	to?: string;
+	external?: boolean;
 	className?: string;
-	buttonLabel?: string;
-	arrow?: boolean;
-};
-type ButtonProps = CommonProps & ButtonHTMLAttributes<HTMLButtonElement>;
-type LinkProps = CommonProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-
-export type ButtonComponentProps = {
-	type?: 'button' | 'link';
-	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 	children?: ReactNode;
-} & (ButtonProps | LinkProps);
+	variation:
+		| 'primary'
+		| 'secondary-light'
+		| 'secondary-dark'
+		| 'link-light'
+		| 'link-dark';
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: React.FC<ButtonComponentProps> = ({
-	type,
-	variation,
-	color,
+const Button: React.FC<ButtonProps> = ({
+	to,
+	external,
 	className,
-	onClick,
+	variation,
 	children,
-	buttonLabel,
-	arrow,
 }) => {
-	const buttonClasses = `v-btn text-sm flex tracking-wide w-fit ${variation} ${color} ${className}`;
+	const isLink = to?.length;
+	let buttonClasses = `v-btn text-sm flex tracking-wide w-fit ${className}`;
+	if (variation === 'primary') {
+		buttonClasses += ' primary';
+	}
+	if (variation === 'secondary-light') {
+		buttonClasses += ' secondary light';
+	}
+	if (variation === 'secondary-dark') {
+		buttonClasses += ' secondary dark';
+	}
+	if (variation === 'link-dark') {
+		buttonClasses += ' link dark';
+	}
+	if (variation === 'link-light') {
+		buttonClasses += ' link light';
+	}
 
-	if (type === 'button') {
+	if (external) {
 		return (
-			<button
-				className={buttonClasses}
-				onClick={onClick as MouseEventHandler<HTMLButtonElement>}
-			>
-				{children || buttonLabel}
-				{arrow && (
-					<svg
-						className="h-5 w-5 ml-2"
-						fill="none"
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth={2}
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path d="M17 8l4 4m0 0l-4 4m4-4H3" />
-					</svg>
-				)}
-			</button>
-		);
-	} else {
-		return (
-			<a
-				href="#"
-				className={buttonClasses}
-				onClick={onClick as MouseEventHandler<HTMLAnchorElement>}
-			>
-				{children || buttonLabel}
-				{arrow && (
-					<svg
-						className="h-5 w-5 ml-2"
-						fill="none"
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth={2}
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path d="M17 8l4 4m0 0l-4 4m4-4H3" />
-					</svg>
-				)}
+			<a href={to} target="_blank" className={buttonClasses}>
+				{children}
 			</a>
 		);
 	}
+
+	if (isLink) {
+		return (
+			<Link to={to} className={buttonClasses}>
+				{children}
+			</Link>
+		);
+	}
+
+	return <button className={buttonClasses}>{children}</button>;
 };
 
 export default Button;
