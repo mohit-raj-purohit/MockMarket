@@ -1,29 +1,20 @@
 // src/hooks/useCategories.ts
-import {useEffect, useState} from 'react';
-import {fetchCategories} from '../services';
-import {Categories} from '../types/Categories';
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppDispatch, AppState} from '../redux/store/store';
+import {getCategories} from '../redux/thunks/categoriesThunks';
 
 const useCategories = () => {
-	const [categories, setCategories] = useState<Categories[]>([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState('');
+	const dispatch = useDispatch<AppDispatch>();
+	const {loading, categories} = useSelector(
+		(state: AppState) => state.categories
+	);
 
 	useEffect(() => {
-		const getCategories = async () => {
-			try {
-				const data = await fetchCategories();
-				setCategories(data);
-			} catch (err) {
-				setError('Error fetching categories');
-			} finally {
-				setLoading(false);
-			}
-		};
+		dispatch(getCategories());
+	}, [dispatch]);
 
-		getCategories();
-	}, []);
-
-	return {categories, loading, error};
+	return {categories, loading};
 };
 
 export default useCategories;

@@ -1,11 +1,11 @@
 import {FC, ReactNode} from 'react';
 import {Button, Heading, Text} from '../../atoms';
 import {TeaserCardSkeleton} from './TeaserCardSkeleton';
-import {Categories} from '../../../types/Categories';
+import {Category} from '../../../types/Category';
 import {CSSProperties, createStyle, renderChildrenOfType} from '../../../utils';
 import {ButtonProps} from '../../atoms/Button/Button';
 
-interface TeaserCardProps extends Categories {
+interface TeaserCardProps extends Category {
 	isLoading?: boolean;
 	children?: ReactNode;
 }
