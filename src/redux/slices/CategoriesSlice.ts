@@ -31,10 +31,13 @@ const categoriesSlice = createSlice({
 			.addCase(getCategories.pending, (state) => {
 				state.loading = true;
 			})
-			.addCase(getCategories.fulfilled, (state, {payload: categories}) => {
-				state.loading = false;
-				state.categories = categories;
-			})
+			.addCase(
+				getCategories.fulfilled,
+				(state, {payload: categories}) => {
+					state.loading = false;
+					state.categories = categories;
+				}
+			)
 			.addCase(getCategories.rejected, (state) => {
 				state.loading = false;
 				state.error = 'Error in loading category';
