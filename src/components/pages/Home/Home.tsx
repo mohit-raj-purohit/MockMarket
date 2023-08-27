@@ -4,6 +4,7 @@ import useCategories from '../../../hooks/useCategories';
 import { CATEGORY_PAGE_PATH } from '../../../constants';
 const Home = () => {
 	const {categories, loading: categoriesLoading} = useCategories();
+	console.log(categories);
 	return (
 		<Container className="py-10">
 			<FlexCardGrid variation="full">

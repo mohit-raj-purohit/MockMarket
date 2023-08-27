@@ -9,7 +9,6 @@ const useProducts = (category: string = '') => {
 
 	useEffect(() => {
 		const fetchProductData = async () => {
-			console.log(category);
 			try {
 				const productData = await fetchProducts(category);
 				setProducts(productData);
