@@ -1,4 +1,4 @@
-import React, {ButtonHTMLAttributes, ReactNode} from 'react';
+import React, {AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode} from 'react';
 import './Button.css';
 import {Link} from 'react-router-dom';
 
@@ -13,7 +13,7 @@ export type ButtonProps = {
 		| 'secondary-dark'
 		| 'link-light'
 		| 'link-dark';
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement> & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const Button: React.FC<ButtonProps> = ({
 	to,
@@ -21,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
 	className,
 	variation,
 	children,
+	...rest
 }) => {
 	const isLink = to?.length;
 	let buttonClasses = `v-btn text-sm flex tracking-wide w-fit ${className}`;
@@ -42,7 +43,7 @@ const Button: React.FC<ButtonProps> = ({
 
 	if (external) {
 		return (
-			<a href={to} target="_blank" className={buttonClasses}>
+			<a {...rest} href={to} target="_blank" className={buttonClasses}>
 				{children}
 			</a>
 		);
@@ -50,13 +51,13 @@ const Button: React.FC<ButtonProps> = ({
 
 	if (isLink) {
 		return (
-			<Link to={to} className={buttonClasses}>
+			<Link {...rest} to={to} className={buttonClasses}>
 				{children}
 			</Link>
 		);
 	}
 
-	return <button className={buttonClasses}>{children}</button>;
+	return <button className={buttonClasses} {...rest}>{children}</button>;
 };
 
 export default Button;
