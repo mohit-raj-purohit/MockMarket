@@ -18,13 +18,21 @@ const categoriesSlice = createSlice({
 	name: 'categories',
 	initialState,
 	reducers: {
-		setCategories: (state, action) => {
-			state.categories = action.payload;
+		setCategories: (state, {payload: categories}) => {
+			state.categories = categories;
 			state.loading = false;
 		},
 		setLoading: (state) => {
 			state.loading = true;
 		},
+		// setProductsInCategory: (state, {payload: {products, categoryId}}) => {
+		// 	const category = state.categories.find(
+		// 		(category) => category.id === categoryId
+		// 	);
+		// 	if (category && !category.products?.length) {
+		// 		category.products = products;
+		// 	}
+		// },
 	},
 	extraReducers(builder) {
 		builder

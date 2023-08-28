@@ -24,7 +24,7 @@ const Header: React.FC = () => {
 		setShowMobileNav((prevState) => !prevState);
 	};
 	return (
-		<header className="header bg-white border-b border-gray-200 sticky top-0 z-10">
+		<header className="header bg-white border-b border-gray-200 sticky top-0 z-10 dark:bg-slate-800">
 			<Container className="flex justify-between">
 				<Logo linkAriaLabel="Go to Homepage" logoAlt="Vendora Logo" />
 				<Navigation

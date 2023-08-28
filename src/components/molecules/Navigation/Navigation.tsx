@@ -21,7 +21,7 @@ const Navigation: React.FC<NavigationProps> = ({
 		<nav
 			className={`main-navigation ${className || ''} ${
 				!showMobileNav && 'hidden'
-			} md:flex absolute bg-white w-full left-0 top-full border-b border-gray-200 md:static md:ml-10 md:w-auto md:border-b-0`}
+			} md:flex absolute  w-full left-0 top-full border-b  md:static md:ml-10 md:w-auto md:border-b-0`}
 		>
 			<ul
 				className={`flex-row md:flex w-full md:w-auto py-3 ${

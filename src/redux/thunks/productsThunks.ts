@@ -1,17 +1,17 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import {fetchCategories} from '../../services';
+import {fetchProducts} from '../../services';
 import {AppState} from '../store/store';
 
-export const getCategories = createAsyncThunk(
-	'categories/getCategories',
+export const getProducts = createAsyncThunk(
+	'products/getProducts',
 	async () => {
-		const categories = await fetchCategories();
-		return categories;
+		const products = await fetchProducts();
+		return products;
 	},
 	{
 		condition: (_, {getState}) => {
 			const {
-				categories: {loading},
+				products: {loading},
 			} = getState() as AppState;
 			return loading;
 		},
